@@ -59,7 +59,7 @@ To use it import the class that implements the methods you need:
     >>> from nbupy import NbuAdministratorApi
     >>> nbu = NbuAdministratorApi('https://127.0.0.1:1556/netbackup/', 'admin', 'password', False)
     >>> nbu.login()
-    >>> nbu.get_all_jobs()
+    >>> nbu.get_jobs()
 
 Or by using NbuApiConnector that implements all the methods:
 
@@ -73,7 +73,7 @@ Using the `with` keyword:
 
     >>> from nbupy import NbuApiConnector
     >>> with NbuApiConnector('https://127.0.0.1:1556/netbackup/', 'admin', 'password', False) as nbu:
-    ...     print(nbu.get_all_jobs())
+    ...     print(nbu.get_jobs())
 
 #### Version
 

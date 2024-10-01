@@ -12,7 +12,7 @@ from requests.compat import urljoin
 
 DEFAULT_PAGE_LIMIT = '20'
 DEFAULT_API_VERSION = '3.0'
-SUPPORTED_API_VERSIONS = ['3.0']
+SUPPORTED_API_VERSIONS = ['3.0', '6.0', '9.0', '10.0']
 DEFAULT_TIMEOUT = 20
 
 
@@ -32,6 +32,7 @@ class NbuAuthorizationApi(object):
         self._version = version if version and version in SUPPORTED_API_VERSIONS else DEFAULT_API_VERSION
         self._token = None
         self._session = requests.Session()
+        self._session.trust_env = False
         self.timeout = timeout
 
     def __enter__(self):

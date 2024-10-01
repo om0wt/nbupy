@@ -3,6 +3,8 @@ Module to use the Storage API of Veritas Netbackup
 
 by Sorint https://sorint.it
 
+Modified by: Pavol Calfa <pavol.calfa@gmail.com>
+
 License GPLv3
 """
 
@@ -64,4 +66,12 @@ class NbuStorageApi(nbuauth.NbuAuthorizationApi):
 
     def delete_storage_unit(self, storageUnitName):
         return self._delete_api_call('storage/storage-units/{}'.format(storageUnitName))
+    
+
+    def get_storage_drives(self, id='', filters='', sort=''):
+        """
+        If id is present, returns only that storage drive id, else returns all
+        """
+        return self._paginated_get_request(url='storage/drives', element_id=id, filters=filters, sort=sort)
+
 
